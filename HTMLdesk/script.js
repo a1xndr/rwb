@@ -207,18 +207,8 @@ $(document).ready(function (){
 	icosahedronUnfocused();
 	$('#icosahedron-unfocused').hide();
 	startTime();
-	$('#rss1').rssfeed(
-		'http://habrahabr.ru/rss/feed/posts/418c53389d022a1f99fb26885edbc941',
-		{limit: 8 ,header: false, media:false});
-	$('#rss2').rssfeed(
-		'http://lenta.ru/rss/last24', 
-			{limit: 8 ,header: false, media:false});
 	
 	setTimeout(function () {
-		document.getElementById('newstickermaraquee').textContent = 
-			document.getElementById('rss2').getElementsByTagName('p')[0].textContent.concat(
-			document.getElementById('rss2').getElementsByTagName('p')[1].textContent);
-
 		$(" body marquee").marquee();			
 	},1000);	
 });
