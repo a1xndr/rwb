@@ -1,0 +1,229 @@
+@import url(fonts.css);
+body {
+  background-image: url("img/bg_tile.jpg");
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Terminus";
+  /*font-family:"Fontin Sans";*/
+  font-size: 12pt; 
+  overflow: hidden;
+}
+
+/* Main Structre Divs */
+#left-panel {
+  width: 150px;
+  float: left;
+  padding: 5px;
+  /*position: fixed;*/ 
+position: relative
+}
+
+#icosahedron {
+  height: 150px;
+  width: 100%;
+  margin-bottom: 0px; 
+  z-index:0;
+}
+
+
+#icosahedron-unfocused {
+  display: none;
+  width: 40%;
+  float: right;
+  height: 2000px;
+  opacity: 0.4; }
+
+.logo-label {
+  z-index: 10;
+  color: #000000;
+  background-color: #ffffff;
+  font-family: "Terminus";
+  text-align:right; 
+  font-size: 10px;
+  /*width: 100%;*/
+  /*margin: 0 auto; */
+  display: inline-block;
+  position:absolute;
+  float:right;
+  margin-top:10px;
+  left:130px;
+}
+
+#center-panel {
+  margin-left: 150px;
+  margin-right: 150px; }
+
+#right-panel {
+  float: right;
+  width: 150px;
+  text-align: right; }
+
+
+#bottomnavbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  font-size: 12pt; }
+
+/* Center Columns */
+#center-left-column {
+  float: left;
+  width: 50%;
+  overflow: hidden; }
+#center-right-column {
+  margin-left: 50%;
+  overflow: hidden; }
+
+#workspaces {
+  background-color: #000000;
+  font-family: "Terminus";
+  vertical-align: text-bottom;
+  color: #ffffff;
+  font-weight: bold;
+  padding-right: 5px;
+  z-index: 1;
+  float: left; }
+
+#workspacelist {
+  position: absolute;
+  display: inline-block; }
+
+.inactive_workspace {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+  transform: rotateY(360deg);
+  transition-property: all;
+  transition-duration: 250ms; }
+
+.active_workspace {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+  color: #DE4B5A;
+  transform: rotateY(360deg);
+  transition-property: all;
+  transition-duration: 250ms; }
+
+#newsticker {
+  display: inline-block;
+  vertical-align: text-bottom;
+  right: 0px;
+  width: auto;
+  z-index: 0;
+  background-color: #000000;
+  float: right; }
+
+#clock {
+  right: 0px;
+  z-index: 1;
+  position: absolute; }
+
+#time {
+  float: right;
+  background-color: #000000;
+  z-index: 2;
+  padding-left:10px}
+
+#left-gradient {
+  float: right;
+  width: 30px;
+  background: rgba(36, 201, 133, 0); }
+
+#right-gradient {
+  width: 30px;
+  float: left;
+  background: rgba(36, 201, 133, 0); }
+
+.ex_rate {
+  text-align: right; }
+
+sup {
+  margin-left: 1px; }
+
+h3 {
+  font-family: "Terminus";
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 10px; }
+
+h4 {
+  font-family: "Terminus";
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+a {
+  color: #ffffff;
+  text-decoration: none; }
+
+a.odd {
+  color: #ffffff;
+  line-height: 1.6em; }
+
+a.even {
+  color: #ffffff;
+  /*color: #18424B;*/
+  line-height: 1.6em; }
+
+/*RSS Style */
+ul {
+  list-style-type: none; }
+
+.rssRow div {
+  font-size: 10px;
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+/*# sourceMappingURL=style.css.map */
+
+.large-widget {
+    display: block;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.large-widget__image-wrapper {
+    background: #fff;
+}
+
+.large-widget__image {
+    display: block;
+    border-radius: 0.25em;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%) contrast(150%);
+}
+
+.large-widget:hover .large-widget__image {
+    opacity: 0.5;
+}
+
+.large-widget__details {
+    padding: 0.5em 1em;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #000;
+    opacity: 0.75;
+
+    -webkit-transition: opacity ease-in-out 100ms;
+       -moz-transition: opacity ease-in-out 100ms;
+        -ms-transition: opacity ease-in-out 100ms;
+         -o-transition: opacity ease-in-out 100ms;
+            transition: opacity ease-in-out 100ms;
+}
+
+.large-widget:hover .large-widget__details {
+    opacity: 1;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<?-- Scripts -->
+	<link rel="stylesheet" type="text/css" href="style.black.css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="jquery.marquee.js"></script>
+	<script src="jquery.zrssfeed.min.js" type="text/javascript"></script>
+	<script src="three.min.js"></script>
+	<script src="mousetrap.min.js"></script>
+        <script src="jquery.lastfmnowplaying.js"></script> 
+	<script type="text/javascript" src="glitch/glitch.js"></script>
+	<script src="script.js"></script>
+
+	<?--  Styles and Fonts-->
+	<title>Desktop</title>
+</head>
+<body id="glitchContent">
+	<!-- Banner + Left Panel -->
+	<div id="left-panel">
+		<div class="logo-label" data-text="verm1n" align=right>вермин</div>
+		<div id="icosahedron">	
+		</div>
+		<h4>Ресурсы</h4>
+		<a class="odd"  href=>Яндекс</a><sup>1</sup><br>
+		<a class="even" href=>Mail.Ru</a><sup>2</sup><br>
+		<a class="odd"  href=>Хабрахбр</a><sup>3</sup><br>
+		<a class="even" href=>3DNews</a><sup>4</sup><br>
+		<a class="even" href=><b>L</b>inux.<b>O</b>rg.<b>R</b>u</a><sup>5</sup><br>
+		<a class="odd"  href=>Лепра</a><sup>6</sup><br>
+		<a class="even" href=>Лента.ру</a><sup>7</sup><br>
+		<a class="odd"  href=>lib.gen.rus.ec</a><sup>8</sup><br>
+		<a class="even" href=>рутрэкер</a><sup>9</sup><br>
+		<a class="odd"  href=>музыка - what.cd</a><sup>a</sup><br>
+		<a class="even" href=>тв - broadcasthenet</a><sup>b</sup><br>
+		<a class="odd"  href=>кино - passthepopcorn</a><sup>c</sup><br>
+		<a class="even" href=>двач - /t/</a><sup>d</sup><br>
+		<a class="odd"  href=>двач - /wp/</a><sup>e</sup><br>
+		<a class="even" href=>4chan - /g/</a><sup>f</sup><br>
+		<a class="odd"  href=>4chan - /fit/</a><sup>g</sup><br>
+		<a class="even"  href=>0chan  :-(</a><sup>i</sup><br><br>	
+		
+		<h4>Программы</h4>
+		<a class="even" href=>term</a><br>
+		<a class="odd"  href=>browser</a><br>
+		<a class="even" href=>vim</a><br>
+		<a class="even" href=>irc</a><br>
+		<a class="odd"  href=>fm</a><br>
+		<a class="even" href=>media</a><br>
+		<a class="odd"  href=>htop</a><br>
+		
+
+	</div>     
+	<!-- Right Panel + infa -->
+	<div id="right-panel">
+	    <h3>Музыка</h3>
+	    <script type="text/template" id="lastFmWidget">
+		<a href="{ track.url }" class="large-widget" alt="View information on Last.fm">
+		<div class="large-widget__image-wrapper">
+		<img class="large-widget__image" src="{ track.image.extralarge }" alt="Album artwork" width=100%>
+		</div>
+		<div class="large-widget__details">
+		<div class="large-widget__artist">{ track.artist }</div>
+		<div class="large-widget__title">{ track.title }</div>
+		</div>
+		</a>	    
+	    </script>
+	</div>
+
+	<div id="icosahedron-unfocused">
+	</div>
+	<div id="center-panel">
+
+		<!-- Linux.org.ru Latest -->
+		<div id="center-left-column"><div id="rss1"></div></div>
+		<div id="center-right-column"><div id="rss2"></div>
+		    <div id="launcher"></div>
+		</div>
+	</div>
+	<div id="bottomnavbar">
+		<div id="workspacelist">
+		<div id="workspaces">
+			<span id="workspace1" class="inactive_workspace">ИНФ</span>	
+			<span id="workspace2" class="inactive_workspace">ИНТ</span>	
+			<span id="workspace3" class="inactive_workspace">ИНТ</span>	
+			<span id="workspace4" class="active_workspace">КОМ</span>	
+			<span id="workspace5" class="inactive_workspace">ИНТ</span>
+			<span id="workspace6" class="inactive_workspace">1</span>
+			<span id="workspace7" class="inactive_workspace">2</span>
+			<span id="workspace8" class="inactive_workspace">3</span>
+			<span id="workspace9" class="inactive_workspace">4</span>
+			<span id="workspace10" class="inactive_workspace">5</span>
+		</div>
+		<div id="right-gradient">&nbsp</div>
+		</div>
+		<div id="newsticker"><marquee scrollamount="1" direction="left" id="newstickermaraquee">News News News News News News News News News News News News News News News News News News News News News News News News News News News News News News </marquee></div>
+		<div id="clock"><div id="time">22:00</div><div id="left-gradient">&nbsp</div></div>
+	</div>
+</body>

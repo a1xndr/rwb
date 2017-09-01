@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<?-- Scripts -->
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="jquery.marquee.js"></script>
+	<script src="jquery.zrssfeed.min.js" type="text/javascript"></script>
+	<?--  Styles and Fonts-->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Desktop</title>
+<script type="text/javascript">
+	var currentWorkspace = 4;
+	
+	function changeWorkspace(wsp){
+		document.getElementById("workspace"+currentWorkspace).className = "inactive_workspace";	
+		document.getElementById("workspace"+wsp).className = "active_workspace";
+		currentWorkspace=wsp;
+	}
+	function startTime() {
+	    	var today=new Date();
+	    	var h=today.getHours();
+	    	var m=today.getMinutes();
+	    	var s=today.getSeconds();
+	    	m = checkTime(m);
+	    	s = checkTime(s);
+	    	document.getElementById('time').innerHTML = h+":"+m+":"+s;
+	    	var t = setTimeout(function(){startTime()},500);
+	}
+	function checkTime(i) {
+    		if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    		return i;
+	}
+	$(document).ready(function (){
+		startTime();
+		$('#rss1').rssfeed(
+			'http://habrahabr.ru/rss/feed/posts/418c53389d022a1f99fb26885edbc941',
+			{limit: 15 ,header: false, media:false});
+		$('#rss2').rssfeed(
+			'http://lenta.ru/rss/last24', 
+				{limit: 15 ,header: false, media:false});
+		
+		setTimeout(function () {
+			document.getElementById('newstickermaraquee').textContent = document.getElementById('rss2').getElementsByTagName('p')[0].textContent.concat(document.getElementById('rss2').getElementsByTagName('p')[1].textContent);
+
+			$(" body marquee").marquee();			
+		},1000);	
+	
+	});
+</script>
+<script src="three.min.js"></script>
+<script defer="defer">
+/*
+	$(document).ready(function (){
+	var mouse = {x: 0, y: 0};
+	var newmouse = {x: 0, y: 0};	
+	document.addEventListener('mousemove', function(e){ 
+    		newmouse.x = mouse.x - e.clientX;
+    		newmouse.y = mouse.y - e.clientY;
+		mouse.x = e.clientX;
+		mouse.y = e.clientY; 
+	}, false);
+	// revolutions per second
+      var angularSpeed = 0.2; 
+      var lastTime = 0;
+ 
+      // this function is executed on each animation frame
+      function animate(){
+        // update
+        var time = (new Date()).getTime();
+        var timeDiff = time - lastTime;
+        var angleChange = angularSpeed * timeDiff * 2 * Math.PI / 1000;
+        icosahedron.rotation.y += angleChange+ newmouse.y/400;
+        icosahedron.rotation.z += angleChange + newmouse.x/400;
+        cube.rotation.y -= angleChange + newmouse.y/500;
+        cube.rotation.z -= angleChange/2+newmouse.x/500;
+	newmouse={x:0, y:0};
+        lastTime = time;
+ 
+        // render
+        renderer.render(scene, camera);
+ 
+        // request new frame
+	setTimeout( function() {
+		requestAnimationFrame(function(){
+            		animate();
+        });
+	}, 1000/45);
+	}
+
+      // renderer
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(document.getElementById("container").offsetWidth, document.getElementById("container").offsetHeight);
+      document.getElementById("container").appendChild(renderer.domElement);
+ 
+      // camera
+      var camera = new THREE.PerspectiveCamera(45, document.getElementById("container").offsetWidth/document.getElementById("container").offsetHeight, 1, 1000);
+	camera.position.z = 650;
+	//camera.position.x=300;
+      // scene
+      var scene = new THREE.Scene();
+                
+      // cube
+      var icosahedron = new THREE.Mesh(new THREE.IcosahedronGeometry(200,1), new THREE.MeshNormalMaterial({}));
+      var cube = new THREE.Mesh(new THREE.CubeGeometry(300,300,300), new THREE.MeshNormalMaterial({
+		wireframe:true,
+		wireframeLinewidth:2}));
+      //cube.overdraw = true;
+      scene.add(icosahedron);
+      //scene.add(cube);
+ 
+      // start animation
+      animate();});
+    </script>
+</head>
+<body>
+	<!-- Banner + Left Panel -->
+	<div id="left-panel">
+		<div id="icosahedron">
+			<!--			 <div id="container" style="width:100%; height:150px"></div>	-->
+		</div>
+		<h4>Ресурсы</h4>
+		<a class="odd"  href=>Яндекс</a><sup>1</sup><br>
+		<a class="even" href=>Mail.Ru</a><sup>2</sup><br>
+		<a class="odd"  href=>Хабрахбр</a><sup>3</sup><br>
+		<a class="even" href=>3DNews</a><sup>4</sup><br>
+		<a class="even" href=><b>L</b>inux.<b>O</b>rg.<b>R</b>u</a><sup>5</sup><br>
+		<a class="odd"  href=>Лепра</a><sup>6</sup><br>
+		<a class="even" href=>Лента.ру</a><sup>7</sup><br>
+		<a class="odd"  href=>lib.gen.rus.ec</a><sup>8</sup><br>
+		<a class="even" href=>рутрэкер</a><sup>9</sup><br>
+		<a class="odd"  href=>музыка - what.cd</a><sup>a</sup><br>
+		<a class="even" href=>тв - broadcasthenet</a><sup>b</sup><br>
+		<a class="odd"  href=>кино - passthepopcorn</a><sup>c</sup><br>
+		<a class="even" href=>двач - /t/</a><sup>d</sup><br>
+		<a class="odd"  href=>двач - /wp/</a><sup>e</sup><br>
+		<a class="even" href=>4chan - /g/</a><sup>f</sup><br>
+		<a class="odd"  href=>4chan - /fit/</a><sup>g</sup><br>
+		<a class="even"  href=>0chan  :-(</a><sup>i</sup><br><br>	
+		
+		<h4>Программы</h4>
+		<a class="even" href=>терминал</a><br>
+		<a class="odd"  href=>браузер</a><br>
+		<a class="even" href=>vim</a><br>
+		<a class="even" href=>текст. редактор</a><br>
+		<a class="odd"  href=>файловый мэнеджер</a><br>
+		<a class="even" href=>аудио плеер</a><br>
+		<a class="odd"  href=></a><br>
+	</div>     
+	<!-- Right Panel + infa -->
+	<div id="right-panel">
+		<h3>Курсы валют</h3>
+		<table style="float:right;">
+			<tr><td>usd/руб</td><td class="ex_rate">52.68</td></tr>
+			<tr><td>eur/руб</td><td class="ex_rate">64.72</td></tr>
+			<tr><td>eur/usd</td><td class="ex_rate">1.23</td></tr>	
+		</table>
+	</div>
+
+	<div id="center-panel">
+
+		<!-- Linux.org.ru Latest -->
+		<div id="center-left-column"><div id="rss1"></div></div>
+		<div id="center-right-column"><div id="rss2"></div></div>
+	</div>
+	<div id="bottomnavbar">
+		<div id="workspacelist">
+		<div id="workspaces">
+			<span id="workspace1" class="inactive_workspace">ИНФ</span>	
+			<span id="workspace2" class="inactive_workspace">ИНТ</span>	
+			<span id="workspace3" class="inactive_workspace">ИНТ</span>	
+			<span id="workspace4" class="active_workspace">КОМ</span>	
+			<span id="workspace5" class="inactive_workspace">ИНТ</span>
+			<span id="workspace6" class="inactive_workspace">1</span>
+			<span id="workspace7" class="inactive_workspace">2</span>
+			<span id="workspace8" class="inactive_workspace">3</span>
+			<span id="workspace9" class="inactive_workspace">4</span>
+			<span id="workspace10" class="inactive_workspace">5</span>
+		</div>
+		<div id="right-gradient">&nbsp</div>
+		</div>
+		<div id="newsticker"><marquee scrollamount="1" direction="left" id="newstickermaraquee">News News News News News News News News News News News News News News News News News News News News News News News News News News News News News News </marquee></div>
+		<div id="clock"><div id="time">22:00</div><div id="left-gradient">&nbsp</div></div>
+	</div>
+</body>
