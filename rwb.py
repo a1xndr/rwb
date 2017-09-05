@@ -24,7 +24,6 @@ class Global(object):
     def set_quit(cls, *args, **kwargs):
         cls.quit = True
 
-#GTK BS
 def asynchronous_gtk_message(fun):
     def worker((function, args, kwargs)):
         apply(function, args, kwargs)
@@ -48,15 +47,15 @@ def synchronous_gtk_message(fun):
         return R.result
 
     return fun2
-class SimpleBrowser: # needs GTK, Python, Webkit-GTK
+
+
+#Adopted from SimpleBrowser
+class RootWindowBrowser: 
     def __init__(self, echo=True):
-        #self.window = gtk.Window()
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
-        self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DESKTOP)
-        #self.window.set_position(gtk.WIN_POS_CENTER_ALWAYS)
-        self.window.set_title("HTML_ROOTWINDOW")
+        self.window.set_title("rwb")
         self.window.connect('delete_event', self.close_application)
-        self.window.set_default_size(2560, 1440)
+        self.window.set_default_size(gtk.gdk.screen_width(), gtk.gdk.screen_height())
         vbox = gtk.VBox(spacing=0)
         vbox.set_border_width(0)
         self.txt_url = gtk.Entry()
@@ -68,6 +67,10 @@ class SimpleBrowser: # needs GTK, Python, Webkit-GTK
         vbox.pack_start(self.scrolled_window, fill=True, expand=True)
         self.window.add(vbox)
         message_queue = Queue.Queue()
+       
+       # this makes it the rootwindow
+        self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DESKTOP)
+        
         self.echo=True
         self.show();
     def _txt_url_activate(self, entry):
@@ -103,7 +106,7 @@ if __name__ == '__main__': # <-- this line is optional
         url = os.path.abspath(sys.argv[1])
     else:
         url = os.path.abspath(DEFAULT_URL)
-    browser = synchronous_gtk_message(SimpleBrowser)()
+    browser = synchronous_gtk_message(RootWindowBrowser)()
     #browser.show()  
     synchronous_gtk_message(browser.open)(url)
     running=True;
